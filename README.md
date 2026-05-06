@@ -1,19 +1,33 @@
 # CADMUS
 
-CADMUS is a graphics-focused project that combines **ShaderLab**, **C#**, **GLSL**, and **HLSL** to explore and implement real‑time rendering techniques.
+**CADMUS** is a **3D open‑world** action/survival game project where you explore a living world and fight back against an evil organization and its relentless **zombie hordes**.
+
+The game is inspired by large-scale open-world adventures (in the “Genshin-like” sense of exploration and world systems), with a focus on atmosphere and simulation: **dynamic weather**, a **day/night cycle**, and diverse biomes.
+
+## Core features (planned / in progress)
+- **Open world exploration**: forests, lakes, villages, and interconnected areas.
+- **Dynamic world systems**:
+  - **Weather** (e.g., rain/overcast/clear)
+  - **Day & night cycle** with different ambience and threats
+- **Enemy encounters**: roaming enemies and **zombie hordes**.
+- **Traversal & transport**: vehicles/transports to move across the world.
+- **Combat**: firearms / guns.
+
+## Tech snapshot
+This repository is primarily a **Unity**-style mix of gameplay code and shader work:
 
 > Language mix (by repository bytes): ShaderLab (67.4%), C# (23.4%), GLSL (7.1%), HLSL (2.1%).
 
-## What’s in this repo
-- **ShaderLab / HLSL**: Unity shader definitions and GPU programs.
-- **C#**: Runtime and editor-side scripts that drive materials/shaders, rendering passes, and tooling.
-- **GLSL**: Supporting shaders or reference implementations (e.g., for comparison, portability, or experimentation).
+- **C#**: gameplay systems, world logic, tools
+- **ShaderLab / HLSL**: Unity shaders and rendering work
+- **GLSL**: supporting shaders / experiments / references
 
 ## Getting started
 
 ### Prerequisites
-- **Unity** (recommended): This repository appears shader- and C#-heavy in a way that commonly maps to Unity projects. Use a Unity version compatible with the project settings in the repo (see `ProjectSettings/ProjectVersion.txt` if present).
-- A GPU capable of running modern shaders (DX11+/Metal/Vulkan).
+- **Unity** (recommended). If this is a Unity project, the exact editor version is typically recorded in:
+  - `ProjectSettings/ProjectVersion.txt`
+- A GPU capable of modern real-time rendering (DX11+/Metal/Vulkan).
 
 ### Setup
 1. Clone the repository:
@@ -22,42 +36,30 @@ CADMUS is a graphics-focused project that combines **ShaderLab**, **C#**, **GLSL
    cd CADMUS
    ```
 2. Open the project in **Unity Hub** (Add project → select the repo folder).
-3. Let Unity import assets and compile scripts.
+3. Allow Unity to import assets and compile scripts.
 
-## Running / Using CADMUS
-Because repository layouts differ, here are common entry points:
-- Look for a **sample scene** under `Assets/` (e.g., `Assets/Scenes/`), then open and press **Play**.
-- Look for a **Demo** folder or prefabs showcasing shader effects.
-- If the project uses custom render pipelines (URP/HDRP/custom SRP), check:
-  - `Assets/Settings/`
-  - `Assets/RenderPipeline/`
-  - `ProjectSettings/GraphicsSettings.asset`
+### Run the game (in Editor)
+- Open the project’s main scene (commonly under `Assets/Scenes/`) and press **Play**.
 
-## Development notes
-- **ShaderLab** files typically end in `.shader` and may include HLSL blocks.
-- **HLSL** files often end in `.hlsl` / `.cginc` / `.shaderinclude`.
-- **GLSL** files often end in `.glsl`, `.vert`, `.frag`.
-- Keep shader variants and keywords under control—small changes can increase build time.
+> If you tell me the exact “main” scene path, I can update this README to point to it directly.
 
-## Structure (typical)
-If your repo follows common Unity conventions, you may see:
+## Project structure (typical)
+If the repo follows standard Unity conventions:
 - `Assets/` — materials, shaders, scripts, scenes
 - `Packages/` — package manifest and dependencies
 - `ProjectSettings/` — Unity project settings
 
-## Troubleshooting
-- **Pink materials / shaders not compiling**: Check the Console for shader errors; verify the active render pipeline (Built‑in/URP/HDRP) matches the shaders.
-- **Compilation errors in C#**: Ensure all required packages are installed (Window → Package Manager) and that scripting define symbols match expectations.
-- **Platform differences**: Some shader code paths differ between DX11/12, Metal, Vulkan. Try switching target platform or graphics API.
+## Roadmap ideas
+- More biomes and points of interest (villages/ruins/roads)
+- Horde/wave logic + POI defense events
+- Wildlife / ambient AI
+- Loot + crafting/upgrades
+- Save/load
 
 ## Contributing
-Pull requests and issues are welcome.
-- Create an issue describing the bug/feature.
-- Prefer small, focused PRs.
-- Include screenshots or captures for rendering changes.
+Issues and pull requests are welcome.
+- Keep PRs small and focused.
+- Include screenshots/video captures for rendering or world-visual changes.
 
 ## License
-No license file has been detected by this README. If you intend this project to be open source, consider adding a `LICENSE` file (e.g., MIT, Apache-2.0, GPL-3.0).
-
-## Acknowledgements
-If you’re experimenting with or re-implementing known techniques (PBR, SDFs, post-processing, etc.), consider listing references/papers here.
+No license file is referenced here yet. If you plan to open source CADMUS, add a `LICENSE` file (e.g., MIT/Apache-2.0/GPL-3.0).
